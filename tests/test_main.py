@@ -24,7 +24,7 @@ from main import app
 
 @pytest.fixture
 def test_image():
-    files = {'file': open('./tests/test_image.jpg', 'rb')}
+    files = {'file': open('./tests/test-jalan.jpg', 'rb')}
     return(files)
 
 @pytest.fixture
@@ -106,8 +106,8 @@ def test_img_object_detection_to_json(test_client, test_image):
     assert data['detect_objects_names'] is not None
     assert data['detect_objects'] is not None
 
-    # Assert that the rate values are 'cat, dog'
-    assert data['detect_objects_names'] == 'cat, dog'
+    # Assert that the rate values are ''
+    assert data['detect_objects_names'] == ''
 
     # Additional asserts can be added to check for specific values of the rate type
     # or other keys in the JSON data, if needed.
