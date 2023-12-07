@@ -78,16 +78,7 @@ def get_model_predict(model: YOLO, input_image: Image, save: bool = False, image
         pd.DataFrame: A DataFrame containing the predictions.
     """
     # Make predictions
-    predictions = model.predict(
-                        imgsz=image_size, 
-                        source=input_image, 
-                        conf=conf,
-                        save=save, 
-                        augment=augment,
-                        flipud= 0.0,
-                        fliplr= 0.0,
-                        mosaic = 0.0,
-                        )
+    predictions = model.predict(source=input_image)
     
     # Transform predictions to pandas dataframe
     predictions = transform_predict_to_df(predictions, model.model.names)
